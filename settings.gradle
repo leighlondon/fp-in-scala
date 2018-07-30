@@ -1,2 +1,2 @@
 rootProject.name = 'fp-in-scala'
-include 'fibonacci'
+include 'getting-started'

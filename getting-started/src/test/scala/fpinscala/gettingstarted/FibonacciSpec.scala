@@ -1,4 +1,4 @@
-package fpinscala.fibonacci
+package fpinscala.gettingstarted
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
