@@ -24,4 +24,6 @@ object Module {
 
     go(n, 1)
   }
+
+  def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = ???
 }
