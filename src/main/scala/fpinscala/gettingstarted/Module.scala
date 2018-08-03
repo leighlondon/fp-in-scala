@@ -11,8 +11,6 @@ object Module {
     if (n < 0) -n
     else n
 
-  private def formatFactorial(x: Int): String = formatResult("factorial", x, factorial)
-
   def formatResult(name: String, n: Int, f: Int => Int): String = {
     "The %s of %d is %d.".format(name, n, f(n))
   }
