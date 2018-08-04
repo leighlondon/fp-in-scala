@@ -1,5 +1,7 @@
 package fpinscala.gettingstarted
 
+import scala.annotation.tailrec
+
 object Module {
 
   def main(args: Array[String]): Unit =
@@ -16,7 +18,7 @@ object Module {
   }
 
   def factorial(n: Int): Int = {
-    @annotation.tailrec
+    @tailrec
     def go(n: Int, acc: Int): Int = {
       if (n <= 0) acc
       else go(n - 1, n * acc)
@@ -26,7 +28,7 @@ object Module {
   }
 
   def fib(n: Int): Int = {
-    @annotation.tailrec
+    @tailrec
     def loop(n: Int, b: Int, a: Int): Int =
       if (n <= 0) a
       else loop(n - 1, a = a + b, b = a)
@@ -35,7 +37,7 @@ object Module {
   }
 
   def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
-    @annotation.tailrec
+    @tailrec
     def loop(n: Int): Boolean = {
       if (n >= as.length - 1) true
       else if (!ordered(as(n), as(n + 1))) false
