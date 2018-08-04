@@ -25,6 +25,15 @@ object Module {
     go(n, 1)
   }
 
+  def fib(n: Int): Int = {
+    @annotation.tailrec
+    def loop(n: Int, b: Int, a: Int): Int =
+      if (n <= 0) a
+      else loop(n - 1, a = a + b, b = a)
+
+    loop(n, 1, 0)
+  }
+
   def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @annotation.tailrec
     def loop(n: Int): Boolean = {
