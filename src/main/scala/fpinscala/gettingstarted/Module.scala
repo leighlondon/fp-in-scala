@@ -13,9 +13,8 @@ object Module {
     if (n < 0) -n
     else n
 
-  def formatResult(name: String, n: Int, f: Int => Int): String = {
+  def formatResult(name: String, n: Int, f: Int => Int): String =
     "The %s of %d is %d.".format(name, n, f(n))
-  }
 
   def factorial(n: Int): Int = {
     @tailrec
@@ -38,11 +37,10 @@ object Module {
 
   def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @tailrec
-    def loop(n: Int): Boolean = {
+    def loop(n: Int): Boolean =
       if (n >= as.length - 1) true
       else if (!ordered(as(n), as(n + 1))) false
       else loop(n + 1)
-    }
 
     loop(0)
   }
