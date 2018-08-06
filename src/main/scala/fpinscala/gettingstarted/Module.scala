@@ -18,17 +18,16 @@ object Module {
 
   def factorial(n: Int): Int = {
     @tailrec
-    def go(n: Int, acc: Int): Int = {
+    def go(n: Int, acc: Int): Int =
       if (n <= 0) acc
       else go(n - 1, n * acc)
-    }
 
     go(n, 1)
   }
 
   def fib(n: Int): Int = {
     @tailrec
-    def loop(n: Int, b: Int, a: Int): Int =
+    def loop(n: Int, a: Int, b: Int): Int =
       if (n <= 0) a
       else loop(n - 1, a = a + b, b = a)
 
