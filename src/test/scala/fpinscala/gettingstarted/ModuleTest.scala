@@ -11,4 +11,21 @@ class ModuleTest extends FunSpec with Matchers {
       isSorted(as, (x: Int, y: Int) => x <= y) should be(true)
     }
   }
+
+  describe("fib") {
+    it("handles standard cases") {
+      val data = Map(
+        0 -> 1,
+        1 -> 1,
+        2 -> 2,
+        3 -> 3,
+        4 -> 5,
+        5 -> 8,
+        6 -> 13
+      )
+      data foreach { case (num: Int, value: Int) =>
+        fib(num) should be(value)
+      }
+    }
+  }
 }
