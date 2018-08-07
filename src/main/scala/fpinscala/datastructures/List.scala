@@ -54,18 +54,14 @@ object List {
     case _ => list
   }
 
-  def append[A](a1: List[A], a2: List[A]): List[A] = {
-    a1 match {
-      case Nil => a2
-      case Cons(h, t) => Cons(h, append(t, a2))
-    }
+  def append[A](a1: List[A], a2: List[A]): List[A] = a1 match {
+    case Nil => a2
+    case Cons(h, t) => Cons(h, append(t, a2))
   }
 
-  def init[A](list: List[A]): List[A] = {
-    list match {
-      case Nil => Nil
-      case Cons(h, Nil) => Nil
-      case Cons(h, t) => Cons(h, init(t))
-    }
+  def init[A](list: List[A]): List[A] = list match {
+    case Nil => Nil
+    case Cons(h, Nil) => Nil
+    case Cons(h, t) => Cons(h, init(t))
   }
 }
