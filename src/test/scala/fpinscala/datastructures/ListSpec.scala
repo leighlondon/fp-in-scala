@@ -9,7 +9,7 @@ class ListSpec extends FunSpec with Matchers {
     }
 
     it("drops the right amount of heads") {
-      val list = List(1,2,3,4)
+      val list = List(1, 2, 3, 4)
       List.drop(list, 3) should be(List(4))
     }
 
@@ -19,6 +19,10 @@ class ListSpec extends FunSpec with Matchers {
 
     it("remains calm for sufficiently large n") {
       List.drop(List(1), 100000) should be(Nil)
+    }
+
+    it("handles .init correctly") {
+      List.init(List(1, 2, 3, 4)) should be(List(1, 2, 3))
     }
   }
 }
