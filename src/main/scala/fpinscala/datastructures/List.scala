@@ -1,5 +1,7 @@
 package fpinscala.datastructures
 
+import scala.annotation.tailrec
+
 sealed trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
@@ -42,7 +44,25 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
-  def drop[A](l: List[A], n: Int): List[A] = ???
+  def drop[A](list: List[A], n: Int): List[A] = {
+    @tailrec
+    def loop(value: List[A], i: Int): List[A] =
+      if (n <= 0) list
+      else list match {
+        case Nil => Nil
+        case Cons(_, t) => loop(t, n - 1)
+      }
 
-  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
+    loop(list, n)
+  }
+
+  def dropWhile[A](list: List[A], f: A => Boolean): List[A] = {
+    @tailrec
+    def loop(list: List[A], f: A=>Boolean): List[A] = list match {
+      case _ => list
+      case Cons(h, t) if f(h) => loop(t, f)
+    }
+
+    loop(list, f)
+  }
 }
