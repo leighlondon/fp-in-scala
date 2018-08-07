@@ -37,21 +37,21 @@ object List {
     case Cons(_, tail) => tail
   }
 
-  def setHead[A](list: List[A], head: A): List[A] = list match {
+  def setHead[A](l: List[A], head: A): List[A] = l match {
     case Nil => Cons(head, Nil)
     case Cons(_, t) => Cons(head, t)
   }
 
-  def drop[A](list: List[A], n: Int): List[A] =
-    if (n <= 0) list
-    else list match {
+  def drop[A](l: List[A], n: Int): List[A] =
+    if (n <= 0) l
+    else l match {
       case Nil => Nil
       case Cons(_, t) => drop(t, n - 1)
     }
 
-  def dropWhile[A](list: List[A])(f: A => Boolean): List[A] = list match {
+  def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Cons(h, t) if f(h) => dropWhile(t)(f)
-    case _ => list
+    case _ => l
   }
 
   def append[A](a1: List[A], a2: List[A]): List[A] = a1 match {
@@ -59,7 +59,7 @@ object List {
     case Cons(h, t) => Cons(h, append(t, a2))
   }
 
-  def init[A](list: List[A]): List[A] = list match {
+  def init[A](l: List[A]): List[A] = l match {
     case Nil => Nil
     case Cons(h, Nil) => Nil
     case Cons(h, t) => Cons(h, init(t))
