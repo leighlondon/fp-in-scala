@@ -56,13 +56,8 @@ object List {
     loop(list, n)
   }
 
-  def dropWhile[A](list: List[A], f: A => Boolean): List[A] = {
-    @tailrec
-    def loop(list: List[A], f: A=>Boolean): List[A] = list match {
-      case _ => list
-      case Cons(h, t) if f(h) => loop(t, f)
-    }
-
-    loop(list, f)
+  def dropWhile[A](list: List[A], f: A => Boolean): List[A] = list match {
+    case Cons(h, t) if f(h) => dropWhile(t, f)
+    case _ => list
   }
 }
