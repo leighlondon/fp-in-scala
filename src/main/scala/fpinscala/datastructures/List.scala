@@ -69,7 +69,11 @@ object List {
     case Cons(h, t) => Cons(h, init(t))
   }
 
-  def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = ???
+  @tailrec
+  def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = as match {
+    case Nil => z
+    case Cons(h, t) => foldLeft(t, f(z, h))(f)
+  }
 
   def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = as match {
     case Nil => z
