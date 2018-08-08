@@ -25,4 +25,17 @@ class ListSpec extends FunSpec with Matchers {
       List.init(List(1, 2, 3, 4)) should be(List(1, 2, 3))
     }
   }
+  describe(".length") {
+    it("handles nil input") {
+      List.length(Nil: List[Int]) should be(0)
+    }
+
+    it("calculates length for regular lists") {
+      List.length(List(1, 2, 3)) should be(3)
+    }
+
+    it("counts items when dealing with strings") {
+      List.length(List("abcde", "fghij")) should be(2)
+    }
+  }
 }
