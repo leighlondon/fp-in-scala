@@ -4,8 +4,8 @@ import org.scalatest.{FunSpec, Matchers}
 
 class ListSpec extends FunSpec with Matchers {
   describe("List") {
-    it("evaluates the x match expression to 3") {
-      List.x should be(3)
+    it("evaluates the match expression to 3") {
+      List.x_from_match should be(3)
     }
 
     it("drops the right amount of heads") {

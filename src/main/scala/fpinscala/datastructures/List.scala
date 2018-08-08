@@ -9,7 +9,7 @@ case class Cons[+A](head: A, tail: List[A]) extends List[A]
 object List {
 
   // Exercise 3.1, evaluating a match expression
-  val x: Int = List(1, 2, 3, 4, 5) match {
+  val x_from_match: Int = List(1, 2, 3, 4, 5) match {
     case Cons(x, Cons(2, Cons(4, _))) => x
     case Nil => 42
     case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
