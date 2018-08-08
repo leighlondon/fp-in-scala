@@ -75,4 +75,6 @@ object List {
 
   def product2(ns: List[Double]): Double =
     foldRight(ns, 1.0)(_ * _)
+
+  def length[A](as: List[A]): Int = ???
 }
