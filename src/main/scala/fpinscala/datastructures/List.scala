@@ -88,4 +88,14 @@ object List {
 
   def length[A](as: List[A]): Int =
     foldRight(as, 0)((_, z) => z + 1)
+
+  /* Implementing sum and product with foldLeft. */
+  def sum3(ns: List[Int]): Int =
+    foldLeft(ns, 0)(_ + _)
+
+  def product3(ns: List[Int]): Int =
+    foldLeft(ns, 1)(_ * _)
+
+  def length2[A](l: List[A]): Int =
+    foldLeft(l, 0)((z, _) => z + 1)
 }
