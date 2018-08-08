@@ -1,5 +1,7 @@
 package fpinscala.datastructures
 
+import scala.annotation.tailrec
+
 sealed trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
@@ -17,7 +19,7 @@ object List {
     case _ => 101
   }
 
-  def sum(ints: List[Int]): Int = ints match {
+  def sum(is: List[Int]): Int = is match {
     case Nil => 0
     case Cons(x, xs) => x + sum(xs)
   }
@@ -42,6 +44,7 @@ object List {
     case Cons(_, t) => Cons(head, t)
   }
 
+  @tailrec
   def drop[A](l: List[A], n: Int): List[A] =
     if (n <= 0) l
     else l match {
@@ -49,6 +52,7 @@ object List {
       case Cons(_, t) => drop(t, n - 1)
     }
 
+  @tailrec
   def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Cons(h, t) if f(h) => dropWhile(t)(f)
     case _ => l
