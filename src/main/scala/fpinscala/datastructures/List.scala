@@ -99,6 +99,8 @@ object List {
   def length2[A](l: List[A]): Int =
     foldLeft(l, 0)((z, _) => z + 1)
 
+  def reverse[A](l: List[A]): List[A] = ???
+
   // Hard problem - implementing foldRight in terms of foldLeft.
   def foldRightUsingFoldLeft[A, B](as: List[A], z: B)(f: (A, B) => B): B = ???
 }
