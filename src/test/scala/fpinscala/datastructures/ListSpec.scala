@@ -43,4 +43,10 @@ class ListSpec extends FunSpec with Matchers {
       List.length(List("abcde", "fghij")) should be(2)
     }
   }
+
+  describe(".reverse") {
+    it("handles the example usage case") {
+      List.reverse(List(1, 2, 3)) should be(List(3, 2, 1))
+    }
+  }
 }
