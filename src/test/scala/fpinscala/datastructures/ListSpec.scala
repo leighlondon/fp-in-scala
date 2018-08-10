@@ -48,5 +48,9 @@ class ListSpec extends FunSpec with Matchers {
     it("handles the example usage case") {
       List.reverse(List(1, 2, 3)) should be(List(3, 2, 1))
     }
+
+    it("handles the string cases") {
+      List.reverse(List("abc", "def", "ghi")) should be(List("ghi", "def", "abc"))
+    }
   }
 }
