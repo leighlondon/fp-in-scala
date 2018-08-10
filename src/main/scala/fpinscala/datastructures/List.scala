@@ -107,4 +107,7 @@ object List {
 
   def concat[A](list: List[List[A]]): List[A] =
     foldLeft(list, List[A]())(append)
+
+  def addOne(list: List[Int]): List[Int] =
+    foldLeft(list, List[Int]())((l, a) => append(l, Cons(a + 1, Nil)))
 }

@@ -74,7 +74,17 @@ class ListSpec extends FunSpec with Matchers {
 
   describe(".concat") {
     it("works with trivial examples") {
-      List.concat(List(List(0), List(1))) should be(List(0,1))
+      List.concat(List(List(0), List(1))) should be(List(0, 1))
+    }
+  }
+
+  describe(".addOne") {
+    it("adds basic example") {
+      List.addOne(List(1, 2, 3)) should be(List(2, 3, 4))
+    }
+
+    it("handles negative and zero case") {
+      List.addOne(List(-100, -50, 0)) should be(List(-99, -49, 1))
     }
   }
 }
