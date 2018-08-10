@@ -87,4 +87,10 @@ class ListSpec extends FunSpec with Matchers {
       List.addOne(List(-100, -50, 0)) should be(List(-99, -49, 1))
     }
   }
+
+  describe(".doubleToString") {
+    it("handles trivial case") {
+      List.doubleToString(List(0.0)) should be(List("0.0"))
+    }
+  }
 }
