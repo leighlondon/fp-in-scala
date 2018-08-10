@@ -113,4 +113,7 @@ object List {
 
   def doubleToString(list: List[Double]): List[String] =
     foldLeft(list, List[String]())((l, d) => append(l, Cons(d.toString, Nil)))
+
+  def map[A, B](as: List[A])(f: A => B): List[B] =
+    foldLeft(as, List[B]())((l, a) => append(l, Cons(f(a), Nil)))
 }

@@ -93,4 +93,14 @@ class ListSpec extends FunSpec with Matchers {
       List.doubleToString(List(0.0)) should be(List("0.0"))
     }
   }
+
+  describe(".map") {
+    it("works to implement .addOne") {
+      List.map(List(0, 1, 2))(_ + 1) should be(List(1, 2, 3))
+    }
+
+    it("works to implement .doubleToString") {
+      List.map(List(0.0, 10.0))(_.toString) should be(List("0.0", "10.0"))
+    }
+  }
 }
