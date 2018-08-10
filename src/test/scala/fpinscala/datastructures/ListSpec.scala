@@ -53,4 +53,22 @@ class ListSpec extends FunSpec with Matchers {
       List.reverse(List("abc", "def", "ghi")) should be(List("ghi", "def", "abc"))
     }
   }
+
+  describe(".appendUsingFold") {
+    it("appends regular lists correctly") {
+      List.appendUsingFold(List(0, 1), List(2, 3)) should be(List(0, 1, 2, 3))
+    }
+
+    it("handles two empty lists properly") {
+      List.appendUsingFold(List[Int](), List[Int]()) should be(List[Int]())
+    }
+
+    it("can take an empty prefix list") {
+      List.appendUsingFold(List[Int](), List(0)) should be(List(0))
+    }
+
+    it("can take an empty suffix list") {
+      List.appendUsingFold(List(100), List[Int]()) should be(List(100))
+    }
+  }
 }
