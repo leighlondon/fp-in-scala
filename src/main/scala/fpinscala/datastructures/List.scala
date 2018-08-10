@@ -105,15 +105,43 @@ object List {
   def appendUsingFold[A](h: List[A], t: List[A]): List[A] =
     foldRight(h, t)(Cons(_, _))
 
+  /**
+    * Expand a list of lists and concatenate into one list.
+    *
+    * @param list the list of lists
+    * @tparam A the inner type
+    * @return the concatenated list
+    */
   def concat[A](list: List[List[A]]): List[A] =
     foldLeft(list, List[A]())(append)
 
+  /**
+    * Transform a list of ints by adding one to each, using fold.
+    *
+    * @param list the input ints
+    * @return a new list of ints
+    */
   def addOne(list: List[Int]): List[Int] =
     foldLeft(list, List[Int]())((l, a) => append(l, Cons(a + 1, Nil)))
 
+  /**
+    * Convert a list of doubles to their string representations, using fold.
+    *
+    * @param list the input doubles
+    * @return a new list
+    */
   def doubleToString(list: List[Double]): List[String] =
     foldLeft(list, List[String]())((l, d) => append(l, Cons(d.toString, Nil)))
 
+  /**
+    * Transform a list by applying a function f to each element.
+    *
+    * @param as the immutable input list
+    * @param f  the function to apply to each element
+    * @tparam A the type in the input list
+    * @tparam B the type in the output list
+    * @return a new list after applying the function
+    */
   def map[A, B](as: List[A])(f: A => B): List[B] =
     foldLeft(as, List[B]())((l, a) => append(l, Cons(f(a), Nil)))
 }
