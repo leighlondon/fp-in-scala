@@ -93,8 +93,8 @@ object List {
   def sum3(ns: List[Int]): Int =
     foldLeft(ns, 0)(_ + _)
 
-  def product3(ns: List[Int]): Int =
-    foldLeft(ns, 1)(_ * _)
+  def product3(ns: List[Double]): Double =
+    foldLeft(ns, 1.0)(_ * _)
 
   def length2[A](l: List[A]): Int =
     foldLeft(l, 0)((z, _) => z + 1)
