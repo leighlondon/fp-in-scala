@@ -71,4 +71,10 @@ class ListSpec extends FunSpec with Matchers {
       List.appendUsingFold(List(100), List[Int]()) should be(List(100))
     }
   }
+
+  describe(".concat") {
+    it("works with trivial examples") {
+      List.concat(List(List(0), List(1))) should be(List(0,1))
+    }
+  }
 }

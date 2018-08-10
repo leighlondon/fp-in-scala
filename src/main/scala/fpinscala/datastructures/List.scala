@@ -104,4 +104,7 @@ object List {
 
   def appendUsingFold[A](h: List[A], t: List[A]): List[A] =
     foldRight(h, t)(Cons(_, _))
+
+  def concat[A](list: List[List[A]]): List[A] =
+    foldLeft(list, List[A]())(append)
 }
