@@ -39,7 +39,7 @@ class ListSpec extends FunSpec with Matchers {
       List.length(List(1, 2, 3)) should be(3)
     }
 
-    it("counts items when dealing with strings") {
+    it("counts strings not individual characters") {
       List.length(List("abcde", "fghij")) should be(2)
     }
   }
