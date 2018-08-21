@@ -11,8 +11,7 @@ class ListSpec extends FunSpec with Matchers {
 
   describe(".drop") {
     it("drops the right amount of heads") {
-      val list = List(1, 2, 3, 4)
-      List.drop(list, 3) should be(List(4))
+      List.drop(List(1, 2, 3, 4), 3) should be(List(4))
     }
 
     it("remains nil for a nil list") {
