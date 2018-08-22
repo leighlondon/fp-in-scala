@@ -144,4 +144,6 @@ object List {
     */
   def map[A, B](as: List[A])(f: A => B): List[B] =
     foldLeft(as, List[B]())((l, a) => append(l, Cons(f(a), Nil)))
+
+  def filter[A](as: List[A])(f: A => Boolean): List[A] = ???
 }
