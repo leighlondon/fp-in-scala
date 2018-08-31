@@ -32,15 +32,15 @@ class ListSpec extends FunSpec with Matchers {
 
   describe("length") {
     it("handles nil input") {
-      List.length(Nil: List[Int]) should be(0)
+      len(Nil: List[Int]) should be(0)
     }
 
     it("calculates length for regular lists") {
-      List.length(List(1, 2, 3)) should be(3)
+      len(List(1, 2, 3)) should be(3)
     }
 
     it("counts strings not individual characters") {
-      List.length(List("abcde", "fghij")) should be(2)
+      len(List("abcde", "fghij")) should be(2)
     }
   }
 

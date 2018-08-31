@@ -86,7 +86,7 @@ object List {
   def product2(ns: List[Double]): Double =
     foldRight(ns, 1.0)(_ * _)
 
-  def length[A](as: List[A]): Int =
+  def len[A](as: List[A]): Int =
     foldRight(as, 0)((_, z) => z + 1)
 
   /* Implementing sum and product with foldLeft. */
@@ -96,7 +96,7 @@ object List {
   def product3(ns: List[Double]): Double =
     foldLeft(ns, 1.0)(_ * _)
 
-  def length2[A](l: List[A]): Int =
+  def len2[A](l: List[A]): Int =
     foldLeft(l, 0)((z, _) => z + 1)
 
   def reverse[A](l: List[A]): List[A] =
