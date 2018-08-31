@@ -145,5 +145,14 @@ object List {
   def map[A, B](as: List[A])(f: A => B): List[B] =
     foldLeft(as, List[B]())((l, a) => append(l, Cons(f(a), Nil)))
 
-  def filter[A](as: List[A])(f: A => Boolean): List[A] = ???
+  /**
+    * Filter a list using a function f.
+    *
+    * @param as the immutable input list
+    * @param f  function to filter the list on
+    * @tparam A the type of the input (and output)
+    * @return a new list after filtering
+    */
+  def filter[A](as: List[A])(f: A => Boolean): List[A] =
+    foldRight(as, Nil: List[A])((h, t) => if (f(h)) Cons(h, t) else t)
 }
