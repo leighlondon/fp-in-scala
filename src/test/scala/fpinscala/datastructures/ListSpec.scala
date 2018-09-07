@@ -123,4 +123,18 @@ class ListSpec extends FunSpec with Matchers {
       flatMap(List(1, 2, 3))(i => List(i, i)) should be(List(1, 1, 2, 2, 3, 3))
     }
   }
+
+  describe("filterWithFlatMap") {
+    it("can remove all odd numbers from a list") {
+      filterWithFlatMap(List(1, 2, 3, 4))(_ % 2 == 0) should be(List(2, 4))
+    }
+
+    it("doesn't change list if filter doesn't match") {
+      filterWithFlatMap(List(1, 2, 3, 4, 5))(_ => true) should be(List(1, 2, 3, 4, 5))
+    }
+
+    it("works for a stringy function") {
+      filterWithFlatMap(List("abc", "def", "ghij"))(_.length() == 3) should be(List("abc", "def"))
+    }
+  }
 }
