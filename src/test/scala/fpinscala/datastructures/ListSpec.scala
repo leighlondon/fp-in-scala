@@ -120,7 +120,6 @@ class ListSpec extends FunSpec with Matchers {
 
   describe("flatMap") {
     it("handles the provided example") {
-      pending
       flatMap(List(1, 2, 3))(i => List(i, i)) should be(List(1, 1, 2, 2, 3, 3))
     }
   }
