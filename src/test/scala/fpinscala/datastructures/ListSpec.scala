@@ -120,37 +120,37 @@ class ListSpec extends FunSpec with Matchers {
 
   describe("flatMap") {
     it("handles the provided example") {
-      flatMap(List(1, 2, 3))(i => List(i, i)) should be(List(1, 1, 2, 2, 3, 3))
+      flatMap(List(1, 2, 3))(i => List(i, i)) shouldBe List(1, 1, 2, 2, 3, 3)
     }
   }
 
   describe("filterWithFlatMap") {
     it("can remove all odd numbers from a list") {
-      filterWithFlatMap(List(1, 2, 3, 4))(_ % 2 == 0) should be(List(2, 4))
+      filterWithFlatMap(List(1, 2, 3, 4))(_ % 2 == 0) shouldBe List(2, 4)
     }
 
     it("doesn't change list if filter doesn't match") {
-      filterWithFlatMap(List(1, 2, 3, 4, 5))(_ => true) should be(List(1, 2, 3, 4, 5))
+      filterWithFlatMap(List(1, 2, 3, 4, 5))(_ => true) shouldBe List(1, 2, 3, 4, 5)
     }
 
     it("works for a stringy function") {
-      filterWithFlatMap(List("abc", "def", "ghij"))(_.length() == 3) should be(List("abc", "def"))
+      filterWithFlatMap(List("abc", "def", "ghij"))(_.length() == 3) shouldBe List("abc", "def")
     }
   }
 
   describe("zip") {
     it("handles the provided example") {
-      zip(List(1, 2, 3), List(4, 5, 6)) should be(List(5, 7, 9))
+      zip(List(1, 2, 3), List(4, 5, 6)) shouldBe List(5, 7, 9)
     }
   }
 
   describe("zipWith") {
     it("works for the zip example") {
-      zipWith(List(1, 2, 3), List(4, 5, 6))(_ + _) should be(List(5, 7, 9))
+      zipWith(List(1, 2, 3), List(4, 5, 6))(_ + _) shouldBe List(5, 7, 9)
     }
 
     it("works for strings too") {
-      zipWith(List("a", "b"), List("x", "y"))(_ + _) should be(List("ax", "by"))
+      zipWith(List("a", "b"), List("x", "y"))(_ + _) shouldBe List("ax", "by")
     }
   }
 }
