@@ -167,4 +167,10 @@ object List {
     case (_, Nil) => Nil: List[Int]
     case (Cons(a, as), Cons(b, bs)) => Cons(a.+(b), zip(as, bs))
   }
+
+  def zipWith[A](as: List[A], bs: List[A])(f: (A, A) => A): List[A] = (as, bs) match {
+    case (Nil, _) => Nil: List[A]
+    case (_, Nil) => Nil: List[A]
+    case (Cons(x, xs), Cons(y, ys)) => Cons(f(x, y), zipWith(xs, ys)(f))
+  }
 }

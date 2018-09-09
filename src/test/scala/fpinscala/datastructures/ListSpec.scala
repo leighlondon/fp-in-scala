@@ -143,4 +143,14 @@ class ListSpec extends FunSpec with Matchers {
       zip(List(1, 2, 3), List(4, 5, 6)) should be(List(5, 7, 9))
     }
   }
+
+  describe("zipWith") {
+    it("works for the zip example") {
+      zipWith(List(1, 2, 3), List(4, 5, 6))(_ + _) should be(List(5, 7, 9))
+    }
+
+    it("works for strings too") {
+      zipWith(List("a", "b"), List("x", "y"))(_ + _) should be(List("ax", "by"))
+    }
+  }
 }
