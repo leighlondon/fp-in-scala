@@ -140,7 +140,6 @@ class ListSpec extends FunSpec with Matchers {
 
   describe("zip") {
     it("handles the provided example") {
-      pending
       zip(List(1, 2, 3), List(4, 5, 6)) should be(List(5, 7, 9))
     }
   }

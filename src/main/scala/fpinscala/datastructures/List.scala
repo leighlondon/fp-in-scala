@@ -162,6 +162,9 @@ object List {
   def filterWithFlatMap[A](as: List[A])(f: A => Boolean): List[A] =
     flatMap(as)(a => if (f(a)) List(a) else Nil)
 
-  def zip[A](as: List[A], bs: List[A]): List[A] =
-    ???
+  def zip(as: List[Int], bs: List[Int]): List[Int] = (as, bs) match {
+    case (Nil, _) => Nil: List[Int]
+    case (_, Nil) => Nil: List[Int]
+    case (Cons(a, as), Cons(b, bs)) => Cons(a.+(b), zip(as, bs))
+  }
 }
