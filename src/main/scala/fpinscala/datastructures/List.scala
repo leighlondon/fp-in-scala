@@ -165,7 +165,7 @@ object List {
   def zip(as: List[Int], bs: List[Int]): List[Int] = (as, bs) match {
     case (Nil, _) => Nil: List[Int]
     case (_, Nil) => Nil: List[Int]
-    case (Cons(a, as), Cons(b, bs)) => Cons(a.+(b), zip(as, bs))
+    case (Cons(a, as), Cons(b, bs)) => Cons(a + b, zip(as, bs))
   }
 
   def zipWith[A](as: List[A], bs: List[A])(f: (A, A) => A): List[A] = (as, bs) match {
