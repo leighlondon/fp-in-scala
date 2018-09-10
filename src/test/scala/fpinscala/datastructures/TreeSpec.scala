@@ -1,6 +1,6 @@
 package fpinscala.datastructures
 
-import fpinscala.datastructures.Tree.{depth, maximum}
+import fpinscala.datastructures.Tree.{depth, map, maximum}
 import org.scalatest.{FunSpec, Matchers}
 
 class TreeSpec extends FunSpec with Matchers {
@@ -35,6 +35,16 @@ class TreeSpec extends FunSpec with Matchers {
 
     it("is correct for basic branch") {
       depth(Branch(Leaf("a"), Leaf("b"))) shouldBe 1
+    }
+  }
+
+  describe("map") {
+    it("should transform a single leaf tree") {
+      map(Leaf(1))(_ * 2) shouldBe Leaf(2)
+    }
+
+    it("should handle different types") {
+      map(Leaf(1))(_.toString) shouldBe Leaf("1")
     }
   }
 }
