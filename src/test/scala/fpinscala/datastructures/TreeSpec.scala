@@ -1,6 +1,6 @@
 package fpinscala.datastructures
 
-import fpinscala.datastructures.Tree.maximum
+import fpinscala.datastructures.Tree.{depth, maximum}
 import org.scalatest.{FunSpec, Matchers}
 
 class TreeSpec extends FunSpec with Matchers {
@@ -25,6 +25,16 @@ class TreeSpec extends FunSpec with Matchers {
 
     it("calculates maximum in a full tree") {
       maximum(Branch(Branch(Leaf(10), Leaf(20)), Leaf(30))) shouldBe 30
+    }
+  }
+
+  describe("depth") {
+    it("should be zero for a single leaf") {
+      depth(Leaf(1)) shouldBe 0
+    }
+
+    it("is correct for basic branch") {
+      depth(Branch(Leaf("a"), Leaf("b"))) shouldBe 1
     }
   }
 }
