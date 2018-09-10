@@ -4,12 +4,6 @@ import fpinscala.datastructures.List._
 import org.scalatest.{FunSpec, Matchers}
 
 class ListSpec extends FunSpec with Matchers {
-  describe("List") {
-    it("evaluates the match expression to 3") {
-      x_from_match shouldBe 3
-    }
-  }
-
   describe("drop") {
     it("drops the right amount of heads") {
       drop(List(1, 2, 3, 4), 3) shouldBe List(4)
