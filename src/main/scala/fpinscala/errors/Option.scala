@@ -1,6 +1,6 @@
 package fpinscala.errors
 
-import scala.{Option => _, Some => _, Either => _, _}
+import scala.{Either => _, Option => _, Some => _, _}
 
 sealed trait Option[+A] {
 
