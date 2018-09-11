@@ -17,7 +17,8 @@ sealed trait Option[+A] {
     case Some(a) => a
   }
 
-  def orElse[B >: A](ob: => Option[B]): Option[B] = ???
+  def orElse[B >: A](ob: => Option[B]): Option[B] =
+    map(Some(_)) getOrElse ob
 
   def filter(f: A => Boolean): Option[A] = ???
 }
