@@ -42,4 +42,14 @@ class OptionSpec extends FunSpec with Matchers {
       None flatMap(_ => None) shouldBe None
     }
   }
+
+  describe("orElse") {
+    it("handles some type") {
+      Some(1) orElse Some(200) shouldBe Some(1)
+    }
+
+    it("handles none type") {
+      None orElse Some(200) shouldBe Some(200)
+    }
+  }
 }
