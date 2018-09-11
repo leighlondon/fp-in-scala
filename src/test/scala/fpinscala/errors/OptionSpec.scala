@@ -35,11 +35,11 @@ class OptionSpec extends FunSpec with Matchers {
     }
 
     it("works with none as well") {
-      Some(100000) flatMap(_ => None) shouldBe None
+      Some(100000) flatMap (_ => None) shouldBe None
     }
 
     it("goes from none to none in five seconds") {
-      None flatMap(_ => None) shouldBe None
+      None flatMap (_ => None) shouldBe None
     }
   }
 
@@ -50,6 +50,21 @@ class OptionSpec extends FunSpec with Matchers {
 
     it("handles none type") {
       None orElse Some(200) shouldBe Some(200)
+    }
+  }
+
+  describe("filter") {
+    it("works for trivial case") {
+      Some(1) filter (_ => true) shouldBe Some(1)
+    }
+
+    it("works for negative case") {
+      Some(1) filter (_ => false) shouldBe None
+    }
+
+    it("works for none") {
+      None filter(_ => true) shouldBe None
+      None filter(_ => false) shouldBe None
     }
   }
 }
