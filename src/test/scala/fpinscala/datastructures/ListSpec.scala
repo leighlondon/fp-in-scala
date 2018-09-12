@@ -146,6 +146,10 @@ class ListSpec extends FunSpec with Matchers {
     it("works for strings too") {
       zipWith(List("a", "b"), List("x", "y"))(_ + _) shouldBe List("ax", "by")
     }
+
+    it("doesn't error when unequal lengths") {
+      zipWith(List(1, 2), List(1, 2, 3))(_ + _) shouldBe List(2, 4)
+    }
   }
 
   describe("hasSubsequence") {
