@@ -12,22 +12,22 @@ object List {
 
   // Exercise 3.1, evaluating a match expression
   val x_from_match: Int = List(1, 2, 3, 4, 5) match {
-    case Cons(x, Cons(2, Cons(4, _))) => x
-    case Nil => 42
+    case Cons(x, Cons(2, Cons(4, _)))          => x
+    case Nil                                   => 42
     case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
-    case Cons(h, t) => h + sum(t)
-    case _ => 101
+    case Cons(h, t)                            => h + sum(t)
+    case _                                     => 101
   }
 
   def sum(is: List[Int]): Int = is match {
-    case Nil => 0
+    case Nil         => 0
     case Cons(x, xs) => x + sum(xs)
   }
 
   def product(ds: List[Double]): Double = ds match {
-    case Nil => 1.0
+    case Nil          => 1.0
     case Cons(0.0, _) => 0.0
-    case Cons(x, xs) => x * product(xs)
+    case Cons(x, xs)  => x * product(xs)
   }
 
   def apply[A](as: A*): List[A] =
@@ -35,12 +35,12 @@ object List {
     else Cons(as.head, apply(as.tail: _*))
 
   def tail[A](l: List[A]): List[A] = l match {
-    case Nil => Nil
+    case Nil           => Nil
     case Cons(_, tail) => tail
   }
 
   def setHead[A](l: List[A], head: A): List[A] = l match {
-    case Nil => Cons(head, Nil)
+    case Nil        => Cons(head, Nil)
     case Cons(_, t) => Cons(head, t)
   }
 
@@ -48,35 +48,35 @@ object List {
   def drop[A](l: List[A], n: Int): List[A] =
     if (n <= 0) l
     else l match {
-      case Nil => Nil
+      case Nil        => Nil
       case Cons(_, t) => drop(t, n - 1)
     }
 
   @tailrec
   def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Cons(h, t) if f(h) => dropWhile(t)(f)
-    case _ => l
+    case _                  => l
   }
 
   def append[A](a1: List[A], a2: List[A]): List[A] = a1 match {
-    case Nil => a2
+    case Nil        => a2
     case Cons(h, t) => Cons(h, append(t, a2))
   }
 
   def init[A](l: List[A]): List[A] = l match {
-    case Nil => Nil
+    case Nil          => Nil
     case Cons(h, Nil) => Nil
-    case Cons(h, t) => Cons(h, init(t))
+    case Cons(h, t)   => Cons(h, init(t))
   }
 
   @tailrec
   def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = as match {
-    case Nil => z
+    case Nil        => z
     case Cons(h, t) => foldLeft(t, f(z, h))(f)
   }
 
   def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = as match {
-    case Nil => z
+    case Nil         => z
     case Cons(x, xs) => f(x, foldRight(xs, z)(f))
   }
 
@@ -163,14 +163,14 @@ object List {
     flatMap(as)(a => if (f(a)) List(a) else Nil)
 
   def zip(as: List[Int], bs: List[Int]): List[Int] = (as, bs) match {
-    case (Nil, _) => Nil: List[Int]
-    case (_, Nil) => Nil: List[Int]
+    case (Nil, _)                   => Nil: List[Int]
+    case (_, Nil)                   => Nil: List[Int]
     case (Cons(a, as), Cons(b, bs)) => Cons(a + b, zip(as, bs))
   }
 
   def zipWith[A](as: List[A], bs: List[A])(f: (A, A) => A): List[A] = (as, bs) match {
-    case (Nil, _) => Nil: List[A]
-    case (_, Nil) => Nil: List[A]
+    case (Nil, _)                   => Nil: List[A]
+    case (_, Nil)                   => Nil: List[A]
     case (Cons(x, xs), Cons(y, ys)) => Cons(f(x, y), zipWith(xs, ys)(f))
   }
 
