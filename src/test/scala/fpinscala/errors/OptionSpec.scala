@@ -29,7 +29,7 @@ class OptionSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("flatmap") {
+  describe("flatMap") {
     it("works for some type") {
       Some(100) flatMap ((i: Int) => Some(i * 2)) shouldBe Some(200)
     }
