@@ -43,5 +43,9 @@ object Option {
   def lift[A, B](f: A => B): Option[A] => Option[B] =
     _ map f
 
-  def sequence[A](a: List[Option[A]]): Option[List[A]] = ???
+  def sequence[A](as: List[Option[A]]): Option[List[A]] =
+    as match {
+      case Nil    => Some(Nil)
+      case h :: t => h flatMap { hh => sequence(t) map (hh :: _) }
+    }
 }
