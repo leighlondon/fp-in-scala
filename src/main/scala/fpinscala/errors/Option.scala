@@ -42,4 +42,6 @@ object Option {
 
   def lift[A, B](f: A => B): Option[A] => Option[B] =
     _ map f
+
+  def sequence[A](a: List[Option[A]]): Option[List[A]] = ???
 }
