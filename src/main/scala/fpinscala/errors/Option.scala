@@ -39,4 +39,7 @@ object Option {
 
   def map2[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] =
     a flatMap (aa => b.map(bb => f(aa, bb)))
+
+  def lift[A, B](f: A => B): Option[A] => Option[B] =
+    _ map f
 }
