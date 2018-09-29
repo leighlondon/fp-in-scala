@@ -63,8 +63,14 @@ class OptionSpec extends FunSpec with Matchers {
     }
 
     it("works for none") {
-      None filter(_ => true) shouldBe None
-      None filter(_ => false) shouldBe None
+      None filter (_ => true) shouldBe None
+      None filter (_ => false) shouldBe None
+    }
+  }
+
+  describe("sequence") {
+    it("returns some when expected") {
+      Option.sequence(List(Some(1), Some(2))) shouldBe Some(List(1, 2))
     }
   }
 }
