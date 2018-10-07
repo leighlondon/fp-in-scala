@@ -24,4 +24,14 @@ class EitherSpec extends FunSpec with Matchers {
       Right(2).flatMap((i: Int) => Right[Int](i + 2)) shouldBe Right(4)
     }
   }
+
+  describe("orElse") {
+    it("works for left") {
+      Left("test").orElse(Left("error")) shouldBe Left("error")
+    }
+
+    it("works for right") {
+      Right(2).orElse(Left("unused")) shouldBe Right(2)
+    }
+  }
 }
