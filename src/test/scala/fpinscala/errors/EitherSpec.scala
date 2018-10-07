@@ -34,4 +34,14 @@ class EitherSpec extends FunSpec with Matchers {
       Right(2).orElse(Left("unused")) shouldBe Right(2)
     }
   }
+
+  describe("sequence") {
+    it("returns left if there is an error") {
+      Either.sequence(List(Right(2), Left(1))) shouldBe Left(1)
+    }
+
+    it("returns a list when there are no errors") {
+      Either.sequence(List(Right(2), Right(3), Right(1))) shouldBe Right(List(2, 3, 1))
+    }
+  }
 }

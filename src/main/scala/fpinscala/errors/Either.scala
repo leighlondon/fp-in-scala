@@ -24,14 +24,17 @@ sealed trait Either[+E, +A] {
 
   def map2[EE >: E, B, C](b: Either[EE, B])(f: (A, B) => C): Either[EE, C] =
     for {aa <- this; bb <- b} yield f(aa, bb)
-
 }
 case class Left[+E](value: E) extends Either[E, Nothing]
 case class Right[+A](value: A) extends Either[Nothing, A]
 
 object Either {
 
-  def sequence[E, A](es: List[Either[E, A]]): Either[E, List[A]] = ???
+  def sequence[E, A](es: List[Either[E, A]]): Either[E, List[A]] =
+    es match {
+      case Nil    => Right(Nil)
+      case h :: t => h flatMap { hh => sequence(t) map (hh :: _)}
+    }
 
   def traverse[E, A, B](as: List[A])(f: A => Either[E, B]): Either[E, List[B]] = ???
 }
