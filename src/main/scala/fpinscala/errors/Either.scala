@@ -1,5 +1,7 @@
 package fpinscala.errors
 
+import scala.{Either => _, Left => _, Right => _}
+
 sealed trait Either[+E, +A] {
 
   def map[B](f: A => B): Either[E, B] =
