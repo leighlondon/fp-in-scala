@@ -11,6 +11,10 @@ sealed trait Stream[+A] {
     case Empty      => Nil
     case Cons(h, t) => h() :: t().toList
   }
+
+  def take(n: Int): Stream[A] = ???
+
+  def drop(n: Int): Unit = ???
 }
 case object Empty extends Stream[Nothing]
 case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]
