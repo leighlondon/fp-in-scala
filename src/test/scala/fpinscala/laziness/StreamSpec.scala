@@ -17,6 +17,7 @@ class StreamSpec extends FunSpec with Matchers {
     it("drops the first few elements") {
       Stream("a", "b").drop(1) match {
         case Cons(h, _) => h() shouldBe "b"
+        case _          => true should not be true
       }
     }
   }
