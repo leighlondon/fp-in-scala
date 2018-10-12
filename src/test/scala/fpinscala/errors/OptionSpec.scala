@@ -15,7 +15,7 @@ class OptionSpec extends FunSpec with Matchers {
     }
 
     it("works for none as well") {
-      None map (_.toString) shouldBe None
+      None map (_ => false) shouldBe None
     }
   }
 

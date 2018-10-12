@@ -7,7 +7,7 @@ import scala.util.{Either => _, Left => _, Right => _}
 class EitherSpec extends FunSpec with Matchers {
   describe("map") {
     it("maps left to left") {
-      Left("test").map(_.toString.toUpperCase()) shouldBe Left("test")
+      Left("test").map(_ => false) shouldBe Left("test")
     }
 
     it("maps right to right") {

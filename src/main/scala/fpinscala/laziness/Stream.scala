@@ -21,8 +21,8 @@ sealed trait Stream[+A] {
   }
 
   def drop(n: Int): Stream[A] = this match {
-    case Cons(h, t) if n > 1  => t().take(n - 1)
-    case Cons(h, t) if n == 1 => t()
+    case Cons(_, t) if n > 1  => t().take(n - 1)
+    case Cons(_, t) if n == 1 => t()
     case _                    => empty
   }
 
