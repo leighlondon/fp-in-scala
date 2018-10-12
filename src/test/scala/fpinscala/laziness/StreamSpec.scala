@@ -21,4 +21,14 @@ class StreamSpec extends FunSpec with Matchers {
       }
     }
   }
+
+  describe("forAll") {
+    it("evaluates true when all match") {
+      Stream(1, 3, 5).forAll(_ % 2 == 1) shouldBe true
+    }
+
+    it("evaluates false when there is a fail") {
+      Stream(1, 2, 3).forAll(_ % 2 == 1) shouldBe false
+    }
+  }
 }
