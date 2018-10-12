@@ -151,13 +151,4 @@ class ListSpec extends FunSpec with Matchers {
       zipWith(List(1, 2), List(1, 2, 3))(_ + _) shouldBe List(2, 4)
     }
   }
-
-  describe("hasSubsequence") {
-    it("works with the provided examples") {
-      pending
-      hasSubsequence(List(1, 2, 3, 4), List(1, 2)) shouldBe true
-      hasSubsequence(List(1, 2, 3, 4), List(2, 3)) shouldBe true
-      hasSubsequence(List(1, 2, 3, 4), List(4)) shouldBe true
-    }
-  }
 }

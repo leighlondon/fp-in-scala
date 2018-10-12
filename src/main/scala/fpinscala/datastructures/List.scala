@@ -173,6 +173,4 @@ object List {
     case (_, Nil)                   => Nil: List[A]
     case (Cons(x, xs), Cons(y, ys)) => Cons(f(x, y), zipWith(xs, ys)(f))
   }
-
-  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = ???
 }
