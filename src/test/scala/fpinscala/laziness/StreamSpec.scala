@@ -12,4 +12,12 @@ class StreamSpec extends FunSpec with Matchers {
       Stream("a", "b", "c").toList shouldBe List("a", "b", "c")
     }
   }
+
+  describe("drop") {
+    it("drops the first few elements") {
+      Stream("a", "b").drop(1) match {
+        case Cons(h, _) => h() shouldBe "b"
+      }
+    }
+  }
 }

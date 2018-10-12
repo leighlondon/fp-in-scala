@@ -20,7 +20,11 @@ sealed trait Stream[+A] {
     case _                    => empty
   }
 
-  def drop(n: Int): Unit = ???
+  def drop(n: Int): Stream[A] = this match {
+    case Cons(h, t) if n > 1  => t().take(n - 1)
+    case Cons(h, t) if n == 1 => t()
+    case _                    => empty
+  }
 }
 case object Empty extends Stream[Nothing]
 case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]
