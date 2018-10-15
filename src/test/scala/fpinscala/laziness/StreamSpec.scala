@@ -31,4 +31,14 @@ class StreamSpec extends FunSpec with Matchers {
       Stream(1, 2, 3).forAll(_ % 2 == 1) shouldBe false
     }
   }
+
+  describe("headOptionWithFoldRight") {
+    it("returns some when there is a head"){
+      Stream(1).headOptionWithFoldRight shouldBe Some(1)
+    }
+
+    it("returns none when there is no head") {
+      Empty.headOptionWithFoldRight shouldBe None
+    }
+  }
 }
