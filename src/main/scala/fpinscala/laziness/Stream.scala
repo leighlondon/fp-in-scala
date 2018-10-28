@@ -50,9 +50,9 @@ sealed trait Stream[+A] {
   def headOptionWithFoldRight: Option[A] =
     foldRight(None: Option[A])((a, _) => Some(a))
 
-//  def mapWithFoldRight[B](f: A => B): Stream[B] =
-//    ???
-//
+  def mapWithFoldRight[B](f: A => B): Stream[B] =
+    foldRight(empty: Stream[B])((a, b) => cons(f(a), b))
+
 //  def filterWithFoldRight(p: A => Boolean): Stream[A] =
 //    ???
 //
